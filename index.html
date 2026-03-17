@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Site Under Development</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Orbitron',sans-serif;
+}
+
+body{
+height:100vh;
+background:#000;
+color:white;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+}
+
+/* animated neon background glow */
+
+body::before{
+content:"";
+position:absolute;
+width:250%;
+height:250%;
+background:linear-gradient(45deg,#00f7ff,#ff00cc,#00ff9d,#0066ff);
+background-size:400% 400%;
+animation:gradientMove 12s ease infinite;
+filter:blur(220px);
+opacity:.2;
+}
+
+@keyframes gradientMove{
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
+}
+
+/* floating particles */
+
+.particle{
+position:absolute;
+width:3px;
+height:3px;
+background:#00f7ff;
+border-radius:50%;
+animation:float linear infinite;
+}
+
+@keyframes float{
+0%{
+transform:translateY(0);
+opacity:1;
+}
+100%{
+transform:translateY(-120vh);
+opacity:0;
+}
+}
+
+/* main container */
+
+.container{
+text-align:center;
+z-index:2;
+}
+
+/* title */
+
+h1{
+font-size:60px;
+letter-spacing:4px;
+}
+
+/* typing text */
+
+.typing{
+margin-top:25px;
+font-size:20px;
+color:#00f7ff;
+border-right:2px solid #00f7ff;
+white-space:nowrap;
+overflow:hidden;
+width:0;
+animation:
+typing 4s steps(40,end) forwards,
+blink .8s infinite;
+}
+
+@keyframes typing{
+from{width:0}
+to{width:420px}
+}
+
+@keyframes blink{
+50%{border-color:transparent}
+}
+
+.sub{
+margin-top:20px;
+font-size:16px;
+opacity:.8;
+}
+
+.footer{
+position:absolute;
+bottom:25px;
+font-size:13px;
+opacity:.6;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1> UNDER DEVELOPMENT</h1>
+
+<div class="typing">
+Please wait while we build something amazing...
+</div>
+
+<div class="sub">
+Few days to grow with us
+</div>
+
+</div>
+
+<div class="footer">
+Launching Soon • 2026
+</div>
+
+<script>
+
+/* create particles */
+
+for(let i=0;i<150;i++){
+
+let p=document.createElement("div");
+p.className="particle";
+
+p.style.left=Math.random()*100+"%";
+p.style.top=Math.random()*100+"%";
+
+p.style.animationDuration=(5+Math.random()*10)+"s";
+
+document.body.appendChild(p);
+
+}
+
+</script>
+
+</body>
+</html>
